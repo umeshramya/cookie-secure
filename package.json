@@ -1,0 +1,11 @@
+{
+  "name": "cookie-secure",
+  "version": "1.0.1",
+  "description": "This module for setting and getting cookies from",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dr Umesh R Bilagi",
+  "license": "MIT"
+}
