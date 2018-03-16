@@ -2,16 +2,17 @@ var util = require("util");
 var queryString = require("querystring");
 
 
-var setCookieString = function(req, res, name, value, maxAge, httponly=true, https=false){
+var setCookieString = function(req, res, name, value, expires ,maxAge, httponly=true,https=false, SameSite="Strict"){
     if(httponly==true){
         var onlyHTTP = "httponly";
     }else{
         var onlyHTTP = "";
     }
+    i
     if (https == true){
-        return `${name} = ${value};max-age=${maxAge};${onlyHTTP};SameSite=Strict;Secure;`;
+        return `${name} = ${value};expires=${expires};max-age=${maxAge};${onlyHTTP};SameSite=${SameSite};Secure;`;
     }else{
-        return `${name} = ${value};max-age=${maxAge};${onlyHTTP};SameSite=Strict;`;
+        return `${name} = ${value};expires=${expires};max-age=${maxAge};${onlyHTTP};SameSite=${SameSite};`;
     }
    
 }
@@ -52,37 +53,3 @@ var getCookie = function(req, res, curCookie){
 }
 exports.getCookie = getCookie;
 
-
-
-// test
-
-// test
-
-
-/*
-open git bash and type below commond to generate self signed ssl key and certifiacte
-openssl genrsa 1024 > key.pem
-openssl req -x509 -new -key key.pem > cert.pem
-*/ 
-var https = require("https");
-
-var fs = require("fs");
-const options={
-    key : fs.readFileSync(__dirname + "/key.pem"),
-    cert : fs.readFileSync(__dirname + "/cert.pem")
-}
-
-https.createServer(options, (req, res) => {
-        var co =setCookieString(req, res,  "ertytyst","rve", 60*60*24,false,true);
-        setCookie(req, res, co, "done",true);
-  }).listen(8000);
-
-
-var http = require("http");
-http.createServer(function(req, res){
-    if(req.url = "/"){
-        var co = setCookieString(req, res,  "test","uemsh", 60*60*24,false, false);
-        setCookie(req, res, co, "dos",true);
-       
-    }
-}).listen(9000);

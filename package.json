@@ -7,5 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dr Umesh R Bilagi",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umeshramya/cookie-secure.git"
+  },
+  "keywords": [
+    "cookie",
+    "secure",
+    "httponly",
+    "https",
+    "http",
+    "same-site"
+  ],
+  "bugs": {
+    "url": "https://github.com/umeshramya/cookie-secure/issues"
+  },
+  "homepage": "https://github.com/umeshramya/cookie-secure#readme"
 }
