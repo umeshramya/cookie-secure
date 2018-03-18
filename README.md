@@ -1,5 +1,5 @@
 # cookie-secure
-![verson](https://img.shields.io/badge/version-1.0.1-green.svg)
+![verson](https://img.shields.io/badge/version-1.0.2-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg)
 
 
@@ -9,17 +9,32 @@ This module sets and get cookie
 1. choose expires or max-age
 2. httponly set true to prevent access from client javascript access
 3. Same-site sting by defualt is `strict` other option is `lax`
+4. secure cookie is only allowed with https
+
+ 
+### First create cookistring 
+var cookieString =setCookieString(req, res, name, value, expires ,maxAge, httponly=true,https=false, SameSite="Strict");
+
+### call setcookie method
+setCookie(req, res, cookieString, data="",  resEnd=true);
+
+### call getcookie method access cookie 
+var cuCokkie = getCookie(req, res, curCookie);
+
+
+
+## Below is example for tesing on localhost
 
 Below code you will see how set https server as how to use secure cookie. 
 
-To get self signed SSL use
+To get self signed SSL use on loacal host testing pupose use below command
 ```
 /*
 open git bash and type below commond to generate self signed ssl key and certifiacte
 openssl genrsa 1024 > key.pem
 openssl req -x509 -new -key key.pem > cert.pem
-*/ 
-```
+*/
+
 
 ```
 var cookie = require("cookie-secure");

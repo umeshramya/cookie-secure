@@ -18,7 +18,7 @@ var setCookieString = function(req, res, name, value, expires ,maxAge, httponly=
 }
 exports.setCookieString = setCookieString;
 
-var setCookie = function(req, res, cookieString, data="",  resEnd=false){
+var setCookie = function(req, res, cookieString, data="",  resEnd=true){
     // this sets new cookie 
     res.writeHead(200, {
         'Set-Cookie': cookieString,
