@@ -8,7 +8,7 @@ var setCookieString = function(req, res, name, value, expires ,maxAge, httponly=
     }else{
         var onlyHTTP = "";
     }
-    i
+    
     if (https == true){
         return `${name} = ${value};expires=${expires};max-age=${maxAge};${onlyHTTP};SameSite=${SameSite};Secure;`;
     }else{
